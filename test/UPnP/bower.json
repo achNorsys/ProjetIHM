@@ -1,0 +1,15 @@
+{
+  "name": "UPnP",
+  "main": "UPnP.js",
+  "homepage": "https://github.com/AlexDmr/tacthab",
+  "description": "",
+  "moduleType": [],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

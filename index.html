@@ -1,0 +1,38 @@
+<!doctype html>
+
+<html ng-app="todomvc">
+<head>
+	<meta charset="utf-8" />
+	<link rel="stylesheet" href="minitodo.css"></link>
+	<script src="bower_components/angular/angular.js"></script>
+	<script src="minitodo.js" defer></script>
+</head>
+
+<body ng-controller="todoController as tdc">
+	<h1>Mini todo avec Angular</h1>
+	<form ng-submit="tdc.addItem()" class="itemToAdd">
+		<input placeholder="Que faut-il se rappeler?" 
+			   ng-model="tdc.newItem" 
+			   autofocus 
+			   class="item" />		
+	</form>
+	
+	<!--Afficher les tâches-->
+	{{tdc.nbCompleted}} / {{tdc.todolist.length}}
+	<todo-item
+		ng-repeat="item in tdc.todolist"
+		text="item.text"
+		date="item.date"
+		completed = "item.completed">
+	</todo-item>
+	<ul>
+		<li ng-repeat="item in tdc.todolist"
+			ng-class="{completed: item.completed}">
+			<input type="checkbox" ng-model="item.completed" ng-change="tdc.save()"/>
+			<label>{{item.text}}</label>
+			<label>{{item.date | date}}</label>
+		</li>
+	</ul>
+
+</body>
+</html>
